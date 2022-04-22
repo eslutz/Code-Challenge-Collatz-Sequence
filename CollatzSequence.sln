@@ -5,6 +5,12 @@ VisualStudioVersion = 25.0.1700.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollatzSequence", "CollatzSequence\CollatzSequence.csproj", "{E6697211-FD00-4881-B0D9-C5D993435FFF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA0B4D18-73E4-4B63-A495-2F797A068F6F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+		docs\collatz-function.svg = docs\collatz-function.svg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
