@@ -4,8 +4,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        // Prompt the user for input.
-        Console.Write("Enter a positive integer => ");
+		// Prompt the user for input.
+		Console.Write("Enter a positive integer => ");
         var userInput = Console.ReadLine();
         // Attempt to parse the input as an unsigned long value.
         var vaildNumberInput = ulong.TryParse(userInput, out ulong userNumber);
