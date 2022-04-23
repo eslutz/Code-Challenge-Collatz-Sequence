@@ -1,32 +1,46 @@
-﻿namespace CollatzSequence;
+﻿using System.Numerics;
+
+namespace CollatzSequence;
 
 internal class Program
 {
     static void Main(string[] args)
     {
-		// Prompt the user for input.
-		Console.Write("Enter a positive integer => ");
-        var userInput = Console.ReadLine();
-        // Attempt to parse the input as an unsigned long value.
-        var vaildNumberInput = ulong.TryParse(userInput, out ulong userNumber);
-
-        // If the user didn't input a valid number, enter loop.
-        while (!vaildNumberInput)
+		Console.WriteLine("Welcome to the Collatz Conjecture Sequence Generator!");
+        var quitProgram = false;
+        while (!quitProgram)
         {
-            // Prompt user for input again.
-            Console.WriteLine("Not a valid positive integer. Try again.");
-            Console.Write("Enter a positive integer => ");
-            userInput = Console.ReadLine();
+            // Prompt the user for input.
+            Console.Write("\nEnter a positive integer (enter q to quit) => ");
+            var userInput = Console.ReadLine();
+            // Check if user wants to quit the program.
+            quitProgram = new[] { "q", "quit" }.Contains(userInput, StringComparer.InvariantCultureIgnoreCase);
+            if (quitProgram)
+            {
+                continue;
+            }
             // Attempt to parse the input as an unsigned long value.
-            vaildNumberInput = ulong.TryParse(userInput, out userNumber);
+            var vaildNumberInput = BigInteger.TryParse(userInput, out BigInteger userNumber);
+
+            // If the user didn't input a valid number, enter loop.
+            while (!vaildNumberInput || userNumber <= 0)
+            {
+                // Prompt user for input again.
+                Console.WriteLine("\nNot a valid positive integer. Try again.");
+                Console.Write("Enter a positive integer (enter q to quit) => ");
+                userInput = Console.ReadLine();
+                // Attempt to parse the input as an unsigned long value.
+                vaildNumberInput = BigInteger.TryParse(userInput, out userNumber);
+            }
+
+            // Call collatz method, passing in the users number.
+            // Assign returned value.
+            var collatzSequence = GetCollatzSequence(userNumber);
+
+            // Print out the Collatz Sequence.
+            collatzSequence.ForEach(number => Console.WriteLine(number));
         }
-
-        // Call collatz method, passing in the users number.
-        // Assign returned value.
-        var collatzSequence = GetCollatzSequence(userNumber);
-
-        // Print out the Collatz Sequence.
-        collatzSequence.ForEach(Console.WriteLine);
+		Console.WriteLine("\nGoodbye!");
     }
 
     /// <summary>
@@ -34,10 +48,10 @@ internal class Program
     /// </summary>
     /// <param name="number">Positive integer starting point.</param>
     /// <returns>The Collatz Sequence.</returns>
-    static List<ulong> GetCollatzSequence(ulong number)
+    static List<BigInteger> GetCollatzSequence(BigInteger number)
     {
         // Initializing Collatz Sequence list with starting number.
-        var collatzSequence = new List<ulong>() { number };
+        var collatzSequence = new List<BigInteger>() { number };
 
         // Loop until the sequence reaches the end value of one.
         do
