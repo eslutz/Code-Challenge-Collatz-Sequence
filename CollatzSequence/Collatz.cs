@@ -14,6 +14,11 @@ public class Collatz
 	private BigInteger _startingNumber;
 
 	/// <summary>
+	/// The Collatz Sequence.
+	/// </summary>
+	private ReadOnlyCollection<BigInteger> _collatzSequence;
+
+	/// <summary>
 	/// The getter and setter for _startingNumber.
 	/// </summary>
 	public BigInteger StartingNumber
@@ -27,61 +32,63 @@ public class Collatz
 		{
 			if (value <= 0)
 			{
-				throw new ArgumentOutOfRangeException(nameof(StartingNumber), "The starting number must be a positive integer.");
+				throw new ArgumentOutOfRangeException(nameof(value), "The starting number must be a positive integer.");
 			}
 			this._startingNumber = value;
-			CollatzSequence.Add(_startingNumber);
 		}
 	}
 
 	/// <summary>
-	/// The getter and setter for the list for storing the Collatz Sequence.
+	/// The getter for the list of the Collatz Sequence.
 	/// </summary>
-	private List<BigInteger> CollatzSequence { get; set; } = new List<BigInteger>();
-
-	/// <summary>
-	/// Default constructor.
-	/// </summary>
-	public Collatz()
+	public ReadOnlyCollection<BigInteger> CollatzSequence
 	{
-		StartingNumber = 1;
-		CollatzSequence.Add(1);
+		get
+		{
+			return this._collatzSequence;
+		}
 	}
-
+		
 	/// <summary>
-	/// Constructor takes in the starting value for the sequence.
+	/// Constructor takes in the starting value for the sequence and generates the Collatz Sequence.
+	/// Sets sequence to -1 if an overflow exception is thrown during sequence generation.
 	/// </summary>
-	/// <param name="startingNumber">The starting value for the sequence.</param>
+	/// <param name="number">The starting value for the sequence.</param>
 	/// <exception cref="ArgumentOutOfRangeException">Exception if value <= 0 is passed.</exception>
-	public Collatz(BigInteger startingNumber)
+	public Collatz(BigInteger number)
 	{
-		if (startingNumber <= 0)
+		if (number <= 0)
 		{
-			throw new ArgumentOutOfRangeException(nameof(startingNumber), "The starting number must be a positive integer.");
+			throw new ArgumentOutOfRangeException(nameof(number), "The starting number must be a positive integer.");
 		}
 
-		StartingNumber = startingNumber;
-	}
+		// Set starting number from input.
+		_startingNumber = number;
 
-	/// <summary>
-	/// Determines the Collatz Sequence from the starting number.
-	/// </summary>
-	/// <returns>The Collatz Sequence.</returns>
-	public ReadOnlyCollection<BigInteger> GenerateSequence()
-	{
-		var currentNumber = StartingNumber;
-		// Loop until the sequence reaches the end value of one.
-		while (currentNumber > 1)
+		// Initialize a new list with the user number as the first element.
+		var sequence = new List<BigInteger>() { number };
+		// Due to the nature of BigInteger, and overflow exception may be thrown.
+		try
 		{
-			// If even, divide the number by 2.
-			// If odd, multiply the number by 3, add 1, and divide by 2.
-			currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : (3 * currentNumber + 1) / 2;
-			// Add the new number to the sequence list.
-			CollatzSequence.Add(currentNumber);
+			// Loop until the sequence reaches the end value of one.
+			while (number > 1)
+			{
+				// If even, divide the number by 2.
+				// If odd, multiply the number by 3, add 1, and divide by 2.
+				number = number % 2 == 0 ? number / 2 : (3 * number + 1) / 2;
+				// Add the new number to the sequence list.
+				sequence.Add(number);
+			}
 		}
-
-		// Return the completed Collatz Sequence.
-		return CollatzSequence.AsReadOnly();
+		// Catch the overflow exception.
+		catch (OverflowException)
+		{
+			// Clear the list and set the first element to -1 to indicate Collatz failure.
+			sequence.Clear();
+			sequence.Add(-1);
+		}
+		// Set the complete sequence.
+		_collatzSequence = sequence.AsReadOnly();
 	}
 
 	/// <summary>
@@ -92,7 +99,10 @@ public class Collatz
 	{
 		// Build return string.
 		var sb = new StringBuilder();
-		CollatzSequence.ForEach(number => sb.AppendLine(number.ToString("G", NumberFormatInfo.CurrentInfo)));
+		foreach(var number in CollatzSequence)
+		{
+			sb.AppendLine(number.ToString("G", NumberFormatInfo.CurrentInfo));
+		}
 
 		// Returns the Collatz Sequence string to display.
 		return sb.ToString();

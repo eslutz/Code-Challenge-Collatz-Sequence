@@ -11,6 +11,7 @@ internal class Program
 
         // Initialize variable for keeping track of if the program is running.
         var quitProgram = false;
+        // Start program loop until the user quits.
         while (!quitProgram)
         {
             // Prompt the user for input.
@@ -24,36 +25,25 @@ internal class Program
                 continue;
             }
 
-            // Attempt to parse the input as an unsigned long value.
-            var vaildNumberInput = BigInteger.TryParse(userInput, out BigInteger userNumber);
+            // Attempt to parse the input as BigInteger.
+            var validBigInt = BigInteger.TryParse(userInput, out BigInteger userNumber);
 
-            // If the user didn't input a valid number, enter loop.
-            while ((!vaildNumberInput || userNumber <= 0) && !quitProgram)
+            // Check if user entered a valid number.
+            if (!validBigInt || userNumber <= 0)
             {
                 // Prompt user for input again.
                 Console.WriteLine("\nNot a valid positive integer. Try again.");
-                Console.Write("Enter a positive integer (enter q to quit) => ");
-                userInput = Console.ReadLine();
-
-                // Check if user wants to quit the program.
-                quitProgram = new[] { "q", "quit" }.Contains(userInput, StringComparer.InvariantCultureIgnoreCase);
-                if (quitProgram)
-                {
-                    continue;
-                }
-
-                // Attempt to parse the input as an unsigned long value.
-                vaildNumberInput = BigInteger.TryParse(userInput, out userNumber);
+                continue;
             }
 
-            // Call collatz method, passing in the users number.
-            // Assign returned value.
+            // Instantiate new Collatz instance, passing in user number.
             var collatzSequence = new Collatz(userNumber);
-            var test = collatzSequence.GenerateSequence();
-			Console.WriteLine(collatzSequence.DisplaySequence());
+            // Print out the Collatz Sequence. 
+            Console.WriteLine(collatzSequence.DisplaySequence());
         }
+        // Display goodbye message.
         Console.WriteLine("\nGoodbye!");
     }
-
-    
 }
+
+// todo: Create test project.
