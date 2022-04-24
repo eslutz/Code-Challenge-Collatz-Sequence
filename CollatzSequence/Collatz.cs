@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Numerics;
@@ -35,6 +36,7 @@ public class Collatz
 				throw new ArgumentOutOfRangeException(nameof(value), "The starting number must be a positive integer.");
 			}
 			this._startingNumber = value;
+			this._collatzSequence = GenerateSequence();
 		}
 	}
 
@@ -65,19 +67,29 @@ public class Collatz
 		// Set starting number from input.
 		_startingNumber = number;
 
+
+		// Set the complete sequence.
+		_collatzSequence = GenerateSequence();
+	}
+
+	private ReadOnlyCollection<BigInteger> GenerateSequence()
+	{
+		// Initialize a new BigInteger with _startingNumber, to then modify.
+		var currentNumber = _startingNumber;
 		// Initialize a new list with the user number as the first element.
-		var sequence = new List<BigInteger>() { number };
+		var sequence = new List<BigInteger>() { currentNumber };
+
 		// Due to the nature of BigInteger, and overflow exception may be thrown.
 		try
 		{
 			// Loop until the sequence reaches the end value of one.
-			while (number > 1)
+			while (currentNumber > 1)
 			{
 				// If even, divide the number by 2.
 				// If odd, multiply the number by 3, add 1, and divide by 2.
-				number = number % 2 == 0 ? number / 2 : (3 * number + 1) / 2;
+				currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : (3 * currentNumber + 1) / 2;
 				// Add the new number to the sequence list.
-				sequence.Add(number);
+				sequence.Add(currentNumber);
 			}
 		}
 		// Catch the overflow exception.
@@ -87,8 +99,9 @@ public class Collatz
 			sequence.Clear();
 			sequence.Add(-1);
 		}
-		// Set the complete sequence.
-		_collatzSequence = sequence.AsReadOnly();
+
+		// Returns the Collatz Sequence.
+		return sequence.AsReadOnly();
 	}
 
 	/// <summary>

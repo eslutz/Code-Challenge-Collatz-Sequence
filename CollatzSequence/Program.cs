@@ -1,4 +1,6 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Linq;
+using System.Numerics;
 
 namespace CollatzSequence;
 
@@ -45,5 +47,3 @@ internal class Program
         Console.WriteLine("\nGoodbye!");
     }
 }
-
-// todo: Create test project.
