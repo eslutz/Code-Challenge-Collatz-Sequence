@@ -7,6 +7,9 @@ using System.Text;
 
 namespace CollatzSequence;
 
+/// <summary>
+/// Collatz class for generating a Collatz Sequence from a starting value.
+/// </summary>
 public class Collatz
 {
 	/// <summary>
@@ -72,6 +75,10 @@ public class Collatz
 		_collatzSequence = GenerateSequence();
 	}
 
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <returns></returns>
 	private ReadOnlyCollection<BigInteger> GenerateSequence()
 	{
 		// Initialize a new BigInteger with _startingNumber, to then modify.
@@ -121,4 +128,3 @@ public class Collatz
 		return sb.ToString();
 	}
 }
-

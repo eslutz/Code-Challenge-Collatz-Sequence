@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-      <Description>Creates a sequence of numbers based on the Collatz Conjecture.</Description>
+    <Description>Creates a sequence of numbers based on the Collatz Conjecture.</Description>
     <OutputType>Exe</OutputType>
     <RepositoryUrl>https://github.com/eslutz/CollatzConjecture</RepositoryUrl>
   </PropertyGroup>
+
 </Project>
