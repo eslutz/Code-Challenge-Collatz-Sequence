@@ -974,3 +974,5 @@ cython_debug/
 # Additional files built by Visual Studio
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,python,csharp,c++,java,visualstudio,pycharm+all,intellij+all
+
+/.idea/
