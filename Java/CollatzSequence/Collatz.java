@@ -24,7 +24,7 @@ public class Collatz {
 	 */
 	public Collatz(BigInteger startingNumber) throws IllegalArgumentException {
 		if (startingNumber.compareTo(BigInteger.ZERO) <= 0) {
-			throw new IllegalArgumentException("The starting number must be" +
+			throw new IllegalArgumentException("The starting number must be " +
 					"a positive integer.");
 		} else {
 			this.startingNumber = startingNumber;
@@ -53,7 +53,7 @@ public class Collatz {
 	public void setStartingNumber(BigInteger startingNumber)
 			throws IllegalArgumentException {
 		if (startingNumber.compareTo(BigInteger.ZERO) <= 0) {
-			throw new IllegalArgumentException("The starting number must be" +
+			throw new IllegalArgumentException("The starting number must be " +
 					"a positive integer.");
 		} else {
 			this.startingNumber = startingNumber;
@@ -75,26 +75,17 @@ public class Collatz {
 		// Initialize a new list with the user number as the first element.
 		var sequence = new ArrayList<>(List.of(currentNumber));
 
-		// Due to the nature of BigInteger, an overflow exception may be thrown.
-		try {
-			// Loop until the sequence reaches the end value of one.
-			while (!currentNumber.equals(BigInteger.ONE)) {
-				// If even, divide the number by 2.
-				// If odd, multiply the number by 3, add 1, and divide by 2.
-				currentNumber = currentNumber.mod(BigInteger.TWO)
-						.equals(BigInteger.ZERO) ?
-						currentNumber.divide(BigInteger.TWO) :
-						(currentNumber.multiply(BigInteger.valueOf(3))
-								.add(BigInteger.ONE)).divide(BigInteger.TWO);
-				// Add the new number to the sequence list.
-				sequence.add(currentNumber);
-			}
-		}
-		// Catch the overflow exception.
-		catch (Exception ex) {
-			// Clear list and set first element to -1 to indicate failure.
-			sequence.clear();
-			sequence.add(BigInteger.valueOf(-1));
+		// Loop until the sequence reaches the end value of one.
+		while (!currentNumber.equals(BigInteger.ONE)) {
+			// If even, divide the number by 2.
+			// If odd, multiply the number by 3, add 1, and divide by 2.
+			currentNumber = currentNumber.mod(BigInteger.TWO)
+					.equals(BigInteger.ZERO) ?
+					currentNumber.divide(BigInteger.TWO) :
+					(currentNumber.multiply(BigInteger.valueOf(3))
+							.add(BigInteger.ONE)).divide(BigInteger.TWO);
+			// Add the new number to the sequence list.
+			sequence.add(currentNumber);
 		}
 
 		// Set the Collatz Sequence.
