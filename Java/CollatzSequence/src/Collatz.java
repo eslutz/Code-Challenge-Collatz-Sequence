@@ -1,6 +1,5 @@
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -46,11 +45,11 @@ public class Collatz {
 		try
 		{
 			// Loop until the sequence reaches the end value of one.
-				while (currentNumber.compareTo(BigInteger.ONE) != 0)
+				while (!currentNumber.equals(BigInteger.ONE))
 				{
 				// If even, divide the number by 2.
 				// If odd, multiply the number by 3, add 1, and divide by 2.
-				currentNumber = currentNumber.mod(BigInteger.TWO).compareTo(BigInteger.ZERO) == 0 ? currentNumber.divide(BigInteger.TWO) : (currentNumber.multiply(BigInteger.valueOf(3)).add(BigInteger.ONE)).divide(BigInteger.TWO);
+				currentNumber = currentNumber.mod(BigInteger.TWO).equals(BigInteger.ZERO) ? currentNumber.divide(BigInteger.TWO) : (currentNumber.multiply(BigInteger.valueOf(3)).add(BigInteger.ONE)).divide(BigInteger.TWO);
 				// Add the new number to the sequence list.
 				sequence.add(currentNumber);
 			}

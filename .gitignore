@@ -975,4 +975,5 @@ cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,python,csharp,c++,java,visualstudio,pycharm+all,intellij+all
 
-/.idea/
+.idea/
+*.iml
