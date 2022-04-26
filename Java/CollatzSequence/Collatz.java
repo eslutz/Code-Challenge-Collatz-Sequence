@@ -98,7 +98,7 @@ public class Collatz {
 	 *
 	 * @return a string of the Collatz Sequence
 	 */
-	public String DisplaySequence() {
+	public String displaySequence() {
 		// Build return string.
 		var sb = new StringBuilder();
 		for (BigInteger number : collatzSequence) {

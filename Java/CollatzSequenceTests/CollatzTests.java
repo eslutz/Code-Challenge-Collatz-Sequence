@@ -60,13 +60,13 @@ class CollatzTests {
 				testSequence.setStartingNumber(new BigInteger(startingNumber)));
 		assertEquals(expectedMessage, ex.getMessage());
 	}
-	
+
 	@Test
 	@DisplayName("Call displaySequence() and get sequence string")
 	void displaySequence() {
 		var expectedString = "5\n8\n4\n2\n1\n";
 		var sequence = new Collatz(BigInteger.valueOf(5));
-		var returnedString = sequence.DisplaySequence();
+		var returnedString = sequence.displaySequence();
 
 		assertEquals(expectedString, returnedString);
 	}

@@ -18,19 +18,11 @@ public class Collatz
 	private BigInteger _startingNumber;
 
 	/// <summary>
-	/// The Collatz Sequence.
-	/// </summary>
-	private ReadOnlyCollection<BigInteger> _collatzSequence;
-
-	/// <summary>
 	/// The getter and setter for _startingNumber.
 	/// </summary>
 	public BigInteger StartingNumber
 	{
-		get
-		{
-			return this._startingNumber;
-		}
+		get => _startingNumber;
 
 		set
 		{
@@ -38,22 +30,16 @@ public class Collatz
 			{
 				throw new ArgumentOutOfRangeException(nameof(value), "The starting number must be a positive integer.");
 			}
-			this._startingNumber = value;
-			this._collatzSequence = GenerateSequence();
+			_startingNumber = value;
+			CollatzSequence = GenerateSequence();
 		}
 	}
 
 	/// <summary>
 	/// The getter for the list of the Collatz Sequence.
 	/// </summary>
-	public ReadOnlyCollection<BigInteger> CollatzSequence
-	{
-		get
-		{
-			return this._collatzSequence;
-		}
-	}
-		
+	public ReadOnlyCollection<BigInteger> CollatzSequence { get; private set; }
+
 	/// <summary>
 	/// Constructor takes in the starting value for the sequence and generates the Collatz Sequence.
 	/// Sets sequence to -1 if an overflow exception is thrown during sequence generation.
@@ -72,13 +58,13 @@ public class Collatz
 
 
 		// Set the complete sequence.
-		_collatzSequence = GenerateSequence();
+		CollatzSequence = GenerateSequence();
 	}
 
 	/// <summary>
-	/// 
+	/// Generates the Collatz Sequence from the starting number
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>ReadOnly copy of the Collatz Sequence.</returns>
 	private ReadOnlyCollection<BigInteger> GenerateSequence()
 	{
 		// Initialize a new BigInteger with _startingNumber, to then modify.
