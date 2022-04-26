@@ -3,35 +3,69 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Collatz class for generating a Collatz Sequence from a starting value.
+ *
+ * @author Eric Slutz
+ */
 public class Collatz {
 	private BigInteger startingNumber;
 
 	private List<BigInteger> collatzSequence;
 
-	public Collatz(BigInteger startingNumber) {
+	/**
+	 * The constructor for the <code>Collatz</code> class. Sets
+	 * <code>startingNumber</code> to the passed value and sets the Collatz
+	 * Sequence for that number. The starting value must be a positive integer.
+	 *
+	 * @param startingNumber the starting number of the Collatz Sequence
+	 * @throws IllegalArgumentException if the starting number less than or
+	 *                                  equal to zero is passed.
+	 */
+	public Collatz(BigInteger startingNumber) throws IllegalArgumentException {
 		if (startingNumber.compareTo(BigInteger.ZERO) <= 0) {
-			throw new IllegalArgumentException("The starting number must be a positive integer.");
-		}
-		else {
+			throw new IllegalArgumentException("The starting number must be" +
+					"a positive integer.");
+		} else {
 			this.startingNumber = startingNumber;
 			generateSequence();
 		}
 	}
 
+	/**
+	 * The getter for <code>startingNumber</code>.
+	 *
+	 * @return the starting number.
+	 */
 	public BigInteger getStartingNumber() {
 		return this.startingNumber;
 	}
 
-	public void setStartingNumber(BigInteger startingNumber) throws IllegalArgumentException {
+	/**
+	 * The setter for the <code>startingNumber</code> of the Collatz Sequence.
+	 * When a new starting number is set, the Collatz Sequence is automatically
+	 * generated for that number. The starting value must be a positive integer.
+	 *
+	 * @param startingNumber the starting number of the Collatz Sequence
+	 * @throws IllegalArgumentException if the starting number less than or
+	 *                                  equal to zero is passed.
+	 */
+	public void setStartingNumber(BigInteger startingNumber)
+			throws IllegalArgumentException {
 		if (startingNumber.compareTo(BigInteger.ZERO) <= 0) {
-			throw new IllegalArgumentException("The starting number must be a positive integer.");
-		}
-		else {
+			throw new IllegalArgumentException("The starting number must be" +
+					"a positive integer.");
+		} else {
 			this.startingNumber = startingNumber;
 			generateSequence();
 		}
 	}
 
+	/**
+	 * The getter for <code>collatzSequence</code>.
+	 *
+	 * @return a readonly list.
+	 */
 	public List<BigInteger> getCollatzSequence() {
 		return Collections.unmodifiableList(this.collatzSequence);
 	}
@@ -41,23 +75,24 @@ public class Collatz {
 		// Initialize a new list with the user number as the first element.
 		var sequence = new ArrayList<>(List.of(currentNumber));
 
-		// Due to the nature of BigInteger, and overflow exception may be thrown.
-		try
-		{
+		// Due to the nature of BigInteger, an overflow exception may be thrown.
+		try {
 			// Loop until the sequence reaches the end value of one.
-				while (!currentNumber.equals(BigInteger.ONE))
-				{
+			while (!currentNumber.equals(BigInteger.ONE)) {
 				// If even, divide the number by 2.
 				// If odd, multiply the number by 3, add 1, and divide by 2.
-				currentNumber = currentNumber.mod(BigInteger.TWO).equals(BigInteger.ZERO) ? currentNumber.divide(BigInteger.TWO) : (currentNumber.multiply(BigInteger.valueOf(3)).add(BigInteger.ONE)).divide(BigInteger.TWO);
+				currentNumber = currentNumber.mod(BigInteger.TWO)
+						.equals(BigInteger.ZERO) ?
+						currentNumber.divide(BigInteger.TWO) :
+						(currentNumber.multiply(BigInteger.valueOf(3))
+								.add(BigInteger.ONE)).divide(BigInteger.TWO);
 				// Add the new number to the sequence list.
 				sequence.add(currentNumber);
 			}
 		}
 		// Catch the overflow exception.
-		catch (Exception ex)
-		{
-			// Clear the list and set the first element to -1 to indicate Collatz failure.
+		catch (Exception ex) {
+			// Clear list and set first element to -1 to indicate failure.
 			sequence.clear();
 			sequence.add(BigInteger.valueOf(-1));
 		}
@@ -66,8 +101,13 @@ public class Collatz {
 		this.collatzSequence = sequence;
 	}
 
-	public String DisplaySequence()
-	{
+	/**
+	 * Builds a string with all the values in <code>collatzSequence</code>, with
+	 * each value on its own line.
+	 *
+	 * @return a string of the Collatz Sequence
+	 */
+	public String DisplaySequence() {
 		// Build return string.
 		var sb = new StringBuilder();
 		for (BigInteger number : collatzSequence) {
