@@ -1,5 +1,5 @@
 """Collatz Conjecture Sequence Generator"""
-from Collatz import Collatz
+from collatz import Collatz
 
 
 def main():
