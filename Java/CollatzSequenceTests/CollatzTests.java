@@ -11,6 +11,30 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CollatzTests {
 	@ParameterizedTest
+	@CsvSource({
+			"5, 5",
+			"5555555555555555555555555555555555555555555555555555, 487"
+	})
+	@DisplayName("Call Collatz() constructor with valid argument")
+	void collatzConstructorWithValidNumber(String startingNumber,
+										   int sequenceCount) {
+		var testSequence = new Collatz(new BigInteger(startingNumber));
+
+		assertEquals(sequenceCount, testSequence.getCollatzSequence().size());
+	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {"0", "-5"})
+	@DisplayName("Call Collatz() constructor with invalid argument")
+	void collatzConstructorWithInvalidNumber(String startingNumber) {
+		var expectedMessage = "The starting number must be a positive integer.";
+
+		Exception ex = assertThrows(IllegalArgumentException.class, () ->
+				new Collatz(new BigInteger(startingNumber)));
+		assertEquals(expectedMessage, ex.getMessage());
+	}
+
+	@ParameterizedTest
 	@ValueSource(strings = {"50", "5000", "5000000000000000000000000000000"})
 	@DisplayName("Call setStartingNumber() with valid argument")
 	void setStartingNumberWithValidNumber(String startingNumber) {
@@ -36,31 +60,7 @@ class CollatzTests {
 				testSequence.setStartingNumber(new BigInteger(startingNumber)));
 		assertEquals(expectedMessage, ex.getMessage());
 	}
-
-	@ParameterizedTest
-	@CsvSource({
-			"5, 5",
-			"5555555555555555555555555555555555555555555555555555, 487"
-	})
-	@DisplayName("Call Collatz() constructor with valid argument")
-	void collatzConstructorWithValidNumber(String startingNumber,
-										   int sequenceCount) {
-		var testSequence = new Collatz(new BigInteger(startingNumber));
-
-		assertEquals(sequenceCount, testSequence.getCollatzSequence().size());
-	}
-
-	@ParameterizedTest
-	@ValueSource(strings = {"0", "-5"})
-	@DisplayName("Call Collatz() constructor with invalid argument")
-	void collatzConstructorWithInvalidNumber(String startingNumber) {
-		var expectedMessage = "The starting number must be a positive integer.";
-
-		Exception ex = assertThrows(IllegalArgumentException.class, () ->
-				new Collatz(new BigInteger(startingNumber)));
-		assertEquals(expectedMessage, ex.getMessage());
-	}
-
+	
 	@Test
 	@DisplayName("Call displaySequence() and get sequence string")
 	void displaySequence() {
