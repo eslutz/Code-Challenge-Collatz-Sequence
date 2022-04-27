@@ -13,10 +13,10 @@ class CollatzTests {
 	@ParameterizedTest
 	@CsvSource({
 			"5, 5",
-			"5555555555555555555555555555555555555555555555555555, 487"
+			"5000000000000000000000000000000000000, 448"
 	})
 	@DisplayName("Call Collatz() constructor with valid argument")
-	void collatzConstructorWithValidNumber(String startingNumber,
+	void collatzConstructorWithValidNumberTest(String startingNumber,
 										   int sequenceCount) {
 		var testSequence = new Collatz(new BigInteger(startingNumber));
 
@@ -26,7 +26,7 @@ class CollatzTests {
 	@ParameterizedTest
 	@ValueSource(strings = {"0", "-5"})
 	@DisplayName("Call Collatz() constructor with invalid argument")
-	void collatzConstructorWithInvalidNumber(String startingNumber) {
+	void collatzConstructorWithInvalidNumberTest(String startingNumber) {
 		var expectedMessage = "The starting number must be a positive integer.";
 
 		Exception ex = assertThrows(IllegalArgumentException.class, () ->
@@ -35,9 +35,9 @@ class CollatzTests {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"50", "5000", "5000000000000000000000000000000"})
+	@ValueSource(strings = {"5", "50", "5000000000000000000000000000000000000"})
 	@DisplayName("Call setStartingNumber() with valid argument")
-	void setStartingNumberWithValidNumber(String startingNumber) {
+	void setStartingNumberWithValidNumberTest(String startingNumber) {
 		var testSequence = new Collatz(BigInteger.ONE);
 		var testStartingNumber = testSequence.getStartingNumber();
 
@@ -52,21 +52,22 @@ class CollatzTests {
 	@ParameterizedTest
 	@ValueSource(strings = {"0", "-5"})
 	@DisplayName("Call setStartingNumber() with invalid argument")
-	void setStartingNumberWithInvalidNumber(String startingNumber) {
+	void setStartingNumberWithInvalidNumberTest(String newStartingNumber) {
 		var testSequence = new Collatz(BigInteger.ONE);
 		var expectedMessage = "The starting number must be a positive integer.";
 
 		Exception ex = assertThrows(IllegalArgumentException.class, () ->
-				testSequence.setStartingNumber(new BigInteger(startingNumber)));
+				testSequence.setStartingNumber(
+						new BigInteger(newStartingNumber)));
 		assertEquals(expectedMessage, ex.getMessage());
 	}
 
 	@Test
 	@DisplayName("Call displaySequence() and get sequence string")
-	void displaySequence() {
+	void displaySequenceTest() {
 		var expectedString = "5\n8\n4\n2\n1\n";
-		var sequence = new Collatz(BigInteger.valueOf(5));
-		var returnedString = sequence.displaySequence();
+		var testSequence = new Collatz(BigInteger.valueOf(5));
+		var returnedString = testSequence.displaySequence();
 
 		assertEquals(expectedString, returnedString);
 	}

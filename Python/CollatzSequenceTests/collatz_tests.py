@@ -5,7 +5,7 @@ from parameterized import parameterized
 
 
 class CollatzTests(unittest.TestCase):
-    @parameterized.expand([(5, 5), (5000000000000000000000000000000000000, 334)])
+    @parameterized.expand([(5, 5), (5000000000000000000000000000000000000, 448)])
     def test_collatz_constructor_with_valid_numbers(self, starting_number, expected_count):
         test_sequence = Collatz(starting_number)
         self.assertEqual(expected_count, len(test_sequence.get_collatz_sequence()))

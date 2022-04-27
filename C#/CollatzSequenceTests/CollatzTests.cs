@@ -12,7 +12,7 @@ public static class CollatzTests
 
     [Theory]
     [InlineData("5", 5)]
-    [InlineData("5555555555555555555555555555555555555555555555555555", 487)]
+    [InlineData("5000000000000000000000000000000000000", 448)]
     public static void ValidNumberConstructorTest(string startingInput, int expectedCount)
     {
         var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
@@ -25,34 +25,35 @@ public static class CollatzTests
     [Theory]
     [InlineData("0")]
     [InlineData("-5")]
-    public static void InvalidNumberThrowsExceptionConstructorTest(string startingInput)
+    public static void InvalidNumberConstructorTest(string startingInput)
     {
         var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
         Assert.Throws<ArgumentOutOfRangeException>(() => new Collatz(startingNumber));
     }
 
     [Theory]
-    [InlineData("5", 5, "50", 18)]
-    [InlineData("5", 5, "5000", 23)]
-    public static void ValidNumberSetterTest(string startingInput, int expectedCount, string updatedInput, int updatedCount)
+    [InlineData("5")]
+    [InlineData("50")]
+    [InlineData("5000000000000000000000000000000000000")]
+    public static void ValidNumberSetterTest(string newStartingNumberString)
     {
-        var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
-        var sequence = new Collatz(startingNumber);
-        Assert.Equal(expectedCount, sequence.CollatzSequence.Count);
-        sequence.StartingNumber = BigInteger.Parse(updatedInput, NumberFormatInfo.CurrentInfo);
-        Assert.Equal(updatedCount, sequence.CollatzSequence.Count);
-        Assert.NotEqual(-1, sequence.CollatzSequence[0]);
-        Assert.Equal(1, sequence.CollatzSequence.Last());
+        var sequence = new Collatz(BigInteger.One);
+        Assert.Equal(BigInteger.One, sequence.StartingNumber);
+
+        var newStartingNumber = BigInteger.Parse(newStartingNumberString, NumberFormatInfo.CurrentInfo);
+        sequence.StartingNumber = newStartingNumber;
+        Assert.Equal(newStartingNumber, sequence.StartingNumber);
     }
 
     [Theory]
-    [InlineData("5", "0")]
-    [InlineData("5", "-5")]
-    public static void InvalidNumberThrowsExceptionSetterTest(string startingInput, string updatedInput)
+    [InlineData("0")]
+    [InlineData("-5")]
+    public static void InvalidNumberSetterTest(string newStartingNumberString)
     {
-        var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
-        var sequence = new Collatz(startingNumber);
-        Assert.Throws<ArgumentOutOfRangeException>(() => sequence.StartingNumber = BigInteger.Parse(updatedInput, NumberFormatInfo.CurrentInfo));
+        var sequence = new Collatz(BigInteger.One);
+
+        var newStartingNumber = BigInteger.Parse(newStartingNumberString, NumberFormatInfo.CurrentInfo);
+        Assert.Throws<ArgumentOutOfRangeException>(() => sequence.StartingNumber = newStartingNumber);
     }
 
     [Fact]
