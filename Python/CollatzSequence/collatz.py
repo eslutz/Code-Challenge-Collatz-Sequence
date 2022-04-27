@@ -1,6 +1,9 @@
 """Collatz Module"""
+
+
 class Collatz:
     """Collatz class for generating a Collatz Sequence from a starting value."""
+
     def __init__(self, starting_number):
         if starting_number <= 0:
             raise ValueError("The starting number must be a positive integer.")
@@ -35,8 +38,8 @@ class Collatz:
             # If even, divide the number by 2.
             # If odd, multiply the number by 3, add 1, and divide by 2.
             current_number = current_number / 2 if current_number % 2 == 0 \
-                else (3 * current_number +1) / 2
-            #Add the new number to the sequence list.
+                else (3 * current_number + 1) / 2
+            # Add the new number to the sequence list.
             sequence.append(int(current_number))
 
         # Set the Collatz Sequence.
