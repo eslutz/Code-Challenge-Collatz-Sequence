@@ -30,7 +30,7 @@ public class Driver {
 			try {
 				// Attempt to parse the input as BigInteger.
 				userNumber = new BigInteger(userInput);
-				// Check that it is a positive integer
+				// Check that it is a positive integer.
 				if (userNumber.compareTo(BigInteger.ZERO) <= 0) {
 					throw new NumberFormatException();
 				}

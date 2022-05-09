@@ -18,7 +18,7 @@ public class Collatz {
 	 * <code>startingNumber</code> to the passed value and sets the Collatz
 	 * Sequence for that number. The starting value must be a positive integer.
 	 *
-	 * @param startingNumber the starting number of the Collatz Sequence
+	 * @param startingNumber the starting number of the Collatz Sequence.
 	 * @throws IllegalArgumentException if the starting number less than or
 	 *                                  equal to zero is passed.
 	 */
@@ -46,7 +46,7 @@ public class Collatz {
 	 * When a new starting number is set, the Collatz Sequence is automatically
 	 * generated for that number. The starting value must be a positive integer.
 	 *
-	 * @param startingNumber the starting number of the Collatz Sequence
+	 * @param startingNumber the starting number of the Collatz Sequence.
 	 * @throws IllegalArgumentException if the starting number less than or
 	 *                                  equal to zero is passed.
 	 */

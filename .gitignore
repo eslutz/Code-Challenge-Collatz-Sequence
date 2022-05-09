@@ -977,3 +977,5 @@ cython_debug/
 
 .idea/
 *.iml
+vendor
+
