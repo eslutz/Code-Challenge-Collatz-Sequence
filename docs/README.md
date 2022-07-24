@@ -1,6 +1,6 @@
 # Code Challenge: Collatz Sequence
 
-So what is the Collatz Sequence?  The short answer is, it's a sequence of numbers generated following a mathematical formula that when starting with a positive integer always ends with 1.  
+So what is the Collatz Sequence?  The short answer is, it's a sequence of numbers generated following a mathematical formula that when starting with any positive integer always ends with 1.  
 
 > The Collatz Conjecture is one of the most famous unsolved problems in mathematics. The conjecture asks whether repeating two simple arithmetic operations will eventually transform every positive integer into 1. It concerns sequences of integers in which each term is obtained from the previous term as follows: if the previous term is even, the next term is one half of the previous term. If the previous term is odd, the next term is 3 times the previous term plus 1. The conjecture is that these sequences always reach 1, no matter which positive integer is chosen to start the sequence. [(Wikipedia contributors, 2022)](#references)
 
@@ -31,7 +31,7 @@ Write a console program that meets the following requirements:
   - If the number is odd, multiply the number by 3 and add 1 to get the next number
 - Continue until you reach the final number of the sequence, 1
 - Display the sequence
-- Continue until the user decides to quit
+- Prompt for a new starting number and generate sequence until the user decides to quit
 
 ## Validation
 
