@@ -25,7 +25,7 @@ TEST_P(InvalidNumberParameterizedTests, InvalidNumberConstructorTest) {
 
     try {
         sequence = Collatz(startingNumber);
-        FAIL() << "Expected std::out_of_range";
+        FAIL() << "Expected std::invalid_argument";
     }
     catch (std::invalid_argument const& ex) {
         EXPECT_EQ(ex.what(), std::string("Expected a non-negative integer, got \'" + startingNumber + "\'"));
@@ -51,7 +51,7 @@ TEST_P(InvalidNumberParameterizedTests, InvalidNumberSetterTest) {
     sequence = Collatz("1");
     try {
         sequence.setStartingNumber(newStartingNumber);
-        FAIL() << "Expected std::out_of_range";
+        FAIL() << "Expected std::invalid_argument";
     }
     catch (std::invalid_argument const& ex) {
         EXPECT_EQ(ex.what(), std::string("Expected a non-negative integer, got \'" + newStartingNumber + "\'"));
