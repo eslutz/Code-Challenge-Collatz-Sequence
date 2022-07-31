@@ -93,10 +93,19 @@ public class Collatz {
 	}
 
 	/**
+	 * Returns the length of the sequence.
+	 *
+	 * @return the integer value of the length of the sequence.
+	 */
+	public int getSequenceList() {
+		return collatzSequence.size();
+	}
+
+	/**
 	 * Builds a string with all the values in <code>collatzSequence</code>, with
 	 * each value on its own line.
 	 *
-	 * @return a string of the Collatz Sequence
+	 * @return a string of the Collatz Sequence.
 	 */
 	public String displaySequence() {
 		// Build return string.
