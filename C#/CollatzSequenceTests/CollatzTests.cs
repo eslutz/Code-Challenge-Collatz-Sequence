@@ -12,6 +12,10 @@ public static class CollatzTests
 
     [Theory]
     [InlineData("5", 5)]
+    [InlineData("50", 18)]
+    [InlineData("5000", 23)]
+    [InlineData("5000000", 98)]
+    [InlineData("5000000000", 89)]
     [InlineData("5000000000000000000000000000000000000", 448)]
     public static void ValidNumberConstructorTest(string startingInput, int expectedCount)
     {
@@ -34,6 +38,9 @@ public static class CollatzTests
     [Theory]
     [InlineData("5")]
     [InlineData("50")]
+    [InlineData("5000")]
+    [InlineData("5000000")]
+    [InlineData("5000000000")]
     [InlineData("5000000000000000000000000000000000000")]
     public static void ValidNumberSetterTest(string newStartingNumberString)
     {
