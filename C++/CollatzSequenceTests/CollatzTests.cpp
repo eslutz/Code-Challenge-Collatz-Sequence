@@ -3,12 +3,12 @@
 
 class ValidNumberParameterizedTests :public ::testing::TestWithParam<std::tuple<string, int>> {
 protected:
-    Collatz sequence = Collatz("1");
+    Collatz sequence;
 };
 
 class InvalidNumberParameterizedTests :public ::testing::TestWithParam<string> {
 protected:
-    Collatz sequence = Collatz("1");
+    Collatz sequence;
 };
 
 TEST_P(ValidNumberParameterizedTests, ValidNumberConstructorTest) {
@@ -75,6 +75,9 @@ INSTANTIATE_TEST_CASE_P(
     ::testing::Values(
         std::make_tuple("5", 5),
         std::make_tuple("50", 18),
+        std::make_tuple("5000", 23),
+        std::make_tuple("5000000", 98),
+        std::make_tuple("5000000000", 89),
         std::make_tuple("5000000000000000000000000000000000000", 448)
     )
 );

@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollatzSequence", "CollatzSequence\CollatzSequence.vcxproj", "{D9D70E9A-C3C1-4625-BD6A-B7B7411905FF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollatzSequenceApplication", "CollatzSequenceApplication\CollatzSequenceApplication.vcxproj", "{12204CDB-B445-427C-9D18-83E4D7248044}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5AD6B81F-7C9E-4CD6-9156-16C47F546107} = {5AD6B81F-7C9E-4CD6-9156-16C47F546107}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollatzSequenceApplication", "CollatzSequenceApplication\CollatzSequenceApplication.vcxproj", "{12204CDB-B445-427C-9D18-83E4D7248044}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CollatzSequence", "CollatzSequence\CollatzSequence.vcxproj", "{D9D70E9A-C3C1-4625-BD6A-B7B7411905FF}"
 	ProjectSection(ProjectDependencies) = postProject
 		{5AD6B81F-7C9E-4CD6-9156-16C47F546107} = {5AD6B81F-7C9E-4CD6-9156-16C47F546107}
 	EndProjectSection

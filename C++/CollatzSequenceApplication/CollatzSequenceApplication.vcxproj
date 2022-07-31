@@ -76,7 +76,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\ericslutz\source\repos\CollatzConjecture\C++\BigInt;C:\Users\ericslutz\source\repos\CollatzConjecture\C++\CollatzSequence;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ericslutz\source\repos\Code-Challenge-Collatz-Sequence\C++\BigInt;C:\Users\ericslutz\source\repos\Code-Challenge-Collatz-Sequence\C++\CollatzSequence;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,7 +107,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\ericslutz\source\repos\CollatzConjecture\C++\BigInt;C:\Users\ericslutz\source\repos\CollatzConjecture\C++\CollatzSequence;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\ericslutz\source\repos\Code-Challenge-Collatz-Sequence\C++\BigInt;C:\Users\ericslutz\source\repos\Code-Challenge-Collatz-Sequence\C++\CollatzSequence;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
