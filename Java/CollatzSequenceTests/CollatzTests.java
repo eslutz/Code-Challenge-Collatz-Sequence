@@ -13,6 +13,10 @@ class CollatzTests {
 	@ParameterizedTest
 	@CsvSource({
 			"5, 5",
+			"50, 18",
+			"5000, 23",
+			"5000000, 98",
+			"5000000000, 89",
 			"5000000000000000000000000000000000000, 448"
 	})
 	@DisplayName("Call Collatz() constructor with valid argument")
@@ -35,7 +39,7 @@ class CollatzTests {
 	}
 
 	@ParameterizedTest
-	@ValueSource(strings = {"5", "50", "5000000000000000000000000000000000000"})
+	@ValueSource(strings = {"5", "50", "5000", "5000000", "5000000000", "5000000000000000000000000000000000000"})
 	@DisplayName("Call setStartingNumber() with valid argument")
 	void setStartingNumberWithValidNumberTest(String startingNumber) {
 		var testSequence = new Collatz(BigInteger.ONE);
