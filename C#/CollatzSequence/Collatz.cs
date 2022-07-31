@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.Linq;
 using System.Numerics;
 using System.Text;
 
@@ -95,6 +96,15 @@ public class Collatz
 
 		// Returns the Collatz Sequence.
 		return sequence.AsReadOnly();
+	}
+
+	/// <summary>
+	/// Returns the length of the sequence.
+	/// </summary>
+	/// <returns>The integer value of the length of the sequence.</returns>
+	public int GetSequenceLength()
+	{
+		return CollatzSequence.ToList().Count;
 	}
 
 	/// <summary>
