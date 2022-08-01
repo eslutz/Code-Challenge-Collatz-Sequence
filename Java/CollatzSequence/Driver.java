@@ -45,8 +45,7 @@ public class Driver {
 			var collatzSequence = new Collatz(userNumber);
 			// Print out the Collatz Sequence.
 			System.out.println(collatzSequence.displaySequence());
-
-			System.out.printf("Sequence Length: %d\n", collatzSequence.getSequenceList());
+			System.out.printf("Sequence Length: %d\n", collatzSequence.getSequenceLength());
 		}
 		// Display goodbye message.
 		System.out.println("\nGoodbye!");

@@ -97,7 +97,7 @@ public class Collatz {
 	 *
 	 * @return the integer value of the length of the sequence.
 	 */
-	public int getSequenceList() {
+	public int getSequenceLength() {
 		return collatzSequence.size();
 	}
 
