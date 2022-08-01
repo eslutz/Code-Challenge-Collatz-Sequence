@@ -12,7 +12,7 @@ def main():
     # Start program loop until the user quits.
     while not quit_program:
         # Prompt the user for input.
-        user_input = input('\nEnter a positive integer (enter q to quit) => ').casefold()
+        user_input = input('\nEnter a positive integer (enter q to quit) => ').strip().casefold()
 
         # Check if user wants to quit the program.
         quit_program = user_input in ('q', 'quit')
@@ -33,6 +33,7 @@ def main():
         collatz_sequence = Collatz(user_number)
         # Print out the Collatz Sequence.
         print(collatz_sequence.display_sequence())
+        print("\nSequence Length:", collatz_sequence.get_sequence_length())
 
     # Display goodbye message.
     print('\nGoodbye!')

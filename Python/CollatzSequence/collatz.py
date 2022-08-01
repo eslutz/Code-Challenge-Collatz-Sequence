@@ -45,6 +45,10 @@ class Collatz:
         # Set the Collatz Sequence.
         self.__collatz_sequence = sequence
 
+    def get_sequence_length(self):
+        """Returns the length of the sequence as an integer."""
+        return len(self.__collatz_sequence)
+
     def display_sequence(self):
         """ Builds a string with all the values in <code>collatzSequence</code>, with each value on
          its own line."""
