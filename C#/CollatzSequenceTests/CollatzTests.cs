@@ -21,7 +21,7 @@ public static class CollatzTests
     {
         var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
         var sequence = new Collatz(startingNumber);
-        Assert.Equal(expectedCount, sequence.CollatzSequence.Count);
+        Assert.Equal(expectedCount, sequence.GetSequenceLength());
         Assert.NotEqual(-1, sequence.CollatzSequence[0]);
         Assert.Equal(1, sequence.CollatzSequence.Last());
     }

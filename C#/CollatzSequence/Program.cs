@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Numerics;
 
@@ -42,7 +42,6 @@ internal class Program
             var collatzSequence = new Collatz(userNumber);
             // Print out the Collatz Sequence. 
             Console.WriteLine(collatzSequence.DisplaySequence());
-
             Console.WriteLine($"Sequence Length: {collatzSequence.GetSequenceLength()}");
         }
         // Display goodbye message.

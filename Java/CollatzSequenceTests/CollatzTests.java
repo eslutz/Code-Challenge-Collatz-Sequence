@@ -24,7 +24,7 @@ class CollatzTests {
 										   int sequenceCount) {
 		var testSequence = new Collatz(new BigInteger(startingNumber));
 
-		assertEquals(sequenceCount, testSequence.getCollatzSequence().size());
+		assertEquals(sequenceCount, testSequence.getSequenceLength());
 	}
 
 	@ParameterizedTest
