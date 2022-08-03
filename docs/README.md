@@ -14,7 +14,7 @@ So what is the Collatz Sequence?  The short answer is, it's a sequence of number
 1. Complete the requirements listed in [Requirements](#requirements)
 1. Validate your program against the values in [Validation](#validation)
 
-## Join in on the [Discussion](https://github.com/The-Dev-Pit/Code-Challenge-Collatz-Sequence/discussions)!
+## Join in on the discussion in our [Discord code-challenge](https://discord.com/channels/966813541569003581/1004198114917371964) channel!
 - Share your solution
 - Ask questions
 - Check out the solutions others have come up with
