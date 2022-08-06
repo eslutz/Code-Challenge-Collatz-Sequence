@@ -35,7 +35,7 @@ Write a console program that meets the following requirements:
 
 ## Validation
 
-Enter the below values to get the Collatz Sequence.  Compare the length of your generated sequence to the length listed with the value below.  If they are the same then your sequence is correct. Sequence length values verified using [Collatz Conjecture 3n+1 Calculator - Online Sequence Algorithm](#references)
+Enter the below values to get the Collatz Sequence.  Compare the length of your generated sequence to the length listed with the value below.  If they are the same then your sequence is correct. Sequence length values verified using [Collatz Conjecture 3n+1 Calculator - Online Sequence Algorithm](#references).
 
 | Input Value | Sequence Length |
 | --- | --- |
