@@ -82,8 +82,8 @@ public class Collatz {
 			currentNumber = currentNumber.mod(BigInteger.TWO)
 					.equals(BigInteger.ZERO) ?
 					currentNumber.divide(BigInteger.TWO) :
-					(currentNumber.multiply(BigInteger.valueOf(3))
-							.add(BigInteger.ONE)).divide(BigInteger.TWO);
+					currentNumber.multiply(BigInteger.valueOf(3))
+							.add(BigInteger.ONE);
 			// Add the new number to the sequence list.
 			sequence.add(currentNumber);
 		}

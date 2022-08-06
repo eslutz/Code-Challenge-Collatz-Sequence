@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class CollatzTests {
 	@ParameterizedTest
 	@CsvSource({
-			"5, 5",
-			"50, 18",
-			"5000, 23",
-			"5000000, 98",
-			"5000000000, 89",
-			"5000000000000000000000000000000000000, 448"
+			"5, 6",
+			"50, 25",
+			"5000, 29",
+			"5000000, 145",
+			"5000000000, 124",
+			"5000000000000000000000000000000000000, 653"
 	})
 	@DisplayName("Call Collatz() constructor with valid argument")
 	void collatzConstructorWithValidNumberTest(String startingNumber,
@@ -69,7 +69,7 @@ class CollatzTests {
 	@Test
 	@DisplayName("Call displaySequence() and get sequence string")
 	void displaySequenceTest() {
-		var expectedString = "5\n8\n4\n2\n1\n";
+		var expectedString = "5\n16\n8\n4\n2\n1\n";
 		var testSequence = new Collatz(BigInteger.valueOf(5));
 		var returnedString = testSequence.displaySequence();
 
