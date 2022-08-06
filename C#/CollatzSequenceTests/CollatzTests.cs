@@ -11,12 +11,12 @@ public static class CollatzTests
 {
 
     [Theory]
-    [InlineData("5", 5)]
-    [InlineData("50", 18)]
-    [InlineData("5000", 23)]
-    [InlineData("5000000", 98)]
-    [InlineData("5000000000", 89)]
-    [InlineData("5000000000000000000000000000000000000", 448)]
+    [InlineData("5", 6)]
+    [InlineData("50", 25)]
+    [InlineData("5000", 29)]
+    [InlineData("5000000", 145)]
+    [InlineData("5000000000", 124)]
+    [InlineData("5000000000000000000000000000000000000", 653)]
     public static void ValidNumberConstructorTest(string startingInput, int expectedCount)
     {
         var startingNumber = BigInteger.Parse(startingInput, NumberFormatInfo.CurrentInfo);
@@ -66,7 +66,7 @@ public static class CollatzTests
     [Fact]
     public static void DisplaySequenceTest()
 	{
-        var expectedString = "5\n8\n4\n2\n1\n";
+        var expectedString = "5\n16\n8\n4\n2\n1\n";
         var sequence = new Collatz((BigInteger)5);
         var returnedString = sequence.DisplaySequence();
         Assert.Equal(expectedString, returnedString);
