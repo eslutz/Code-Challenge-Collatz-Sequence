@@ -35,16 +35,16 @@ Write a console program that meets the following requirements:
 
 ## Validation
 
-Enter the below values to get the Collatz Sequence.  Compare the length of your generated sequence to the length listed with the value below.  If they are the same then your sequence is correct.
+Enter the below values to get the Collatz Sequence.  Compare the length of your generated sequence to the length listed with the value below.  If they are the same then your sequence is correct. Sequence length values verified using [Collatz Conjecture 3n+1 Calculator - Online Sequence Algorithm](#references).
 
 | Input Value | Sequence Length |
 | --- | --- |
-| 5 | 5 |
-| 50 | 18 |
-| 5000 | 23 |
-| 5000000 | 98 |
-| 5000000000 | 89 |
-| 5000000000000000000000000000000000000 | 448 |
+| 5 | 6 |
+| 50 | 25 |
+| 5000 | 29 |
+| 5000000 | 145 |
+| 5000000000 | 124 |
+| 5000000000000000000000000000000000000 | 653 |
 
 <br/>
 
@@ -52,5 +52,6 @@ Enter the below values to get the Collatz Sequence.  Compare the length of your 
 
 #### References
 
-Wikipedia contributors. (2022, June 30). Collatz conjecture. Wikipedia.<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[https://en.wikipedia.org/wiki/Collatz_conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
+Collatz Conjecture 3n+1 Calculator - Online Sequence Algorithm. (n.d.). dCode. Retrieved August 6, 2022, from https://www.dcode.fr/collatz-conjecture
+
+Wikipedia contributors. (2022, June 30). Collatz conjecture. Wikipedia. [https://en.wikipedia.org/wiki/Collatz_conjecture](https://en.wikipedia.org/wiki/Collatz_conjecture)
