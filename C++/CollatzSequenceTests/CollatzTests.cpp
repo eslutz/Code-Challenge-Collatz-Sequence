@@ -62,7 +62,7 @@ TEST_P(InvalidNumberParameterizedTests, InvalidNumberSetterTest) {
 }
 
 TEST(ValidDisplayOutput, DisplaySequenceTest) {
-    string expectedString = "5\n8\n4\n2\n1\n";
+    string expectedString = "5\n16\n8\n4\n2\n1\n";
     Collatz sequence = Collatz("5");
     
     string returnedString = sequence.displaySequence();
@@ -73,12 +73,12 @@ INSTANTIATE_TEST_CASE_P(
     CollatzTests,
     ValidNumberParameterizedTests,
     ::testing::Values(
-        std::make_tuple("5", 5),
-        std::make_tuple("50", 18),
-        std::make_tuple("5000", 23),
-        std::make_tuple("5000000", 98),
-        std::make_tuple("5000000000", 89),
-        std::make_tuple("5000000000000000000000000000000000000", 448)
+        std::make_tuple("5", 6),
+        std::make_tuple("50", 25),
+        std::make_tuple("5000", 29),
+        std::make_tuple("5000000", 145),
+        std::make_tuple("5000000000", 124),
+        std::make_tuple("5000000000000000000000000000000000000", 653)
     )
 );
 

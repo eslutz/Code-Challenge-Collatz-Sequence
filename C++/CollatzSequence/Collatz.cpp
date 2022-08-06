@@ -98,7 +98,7 @@ void Collatz::generateSequence() {
 	while (currentNumber > 1) {
 		// If even, divide the number by 2.
 		// If odd, multiply the number by 3, add 1, and divide by 2.
-		currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : (BigInt(3) * currentNumber + 1) / 2;
+		currentNumber = currentNumber % 2 == 0 ? currentNumber / 2 : BigInt(3) * currentNumber + 1;
 		// Add the new number to the sequence list.
 		sequence.push_back(currentNumber);
 	}
