@@ -38,7 +38,7 @@ class Collatz:
             # If even, divide the number by 2.
             # If odd, multiply the number by 3, add 1, and divide by 2.
             current_number = current_number // 2 if current_number % 2 == 0 \
-                else (3 * current_number + 1) // 2
+                else 3 * current_number + 1
             # Add the new number to the sequence list.
             sequence.append(int(current_number))
 

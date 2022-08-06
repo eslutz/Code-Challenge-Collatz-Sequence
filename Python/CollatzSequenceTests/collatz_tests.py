@@ -7,12 +7,12 @@ from parameterized import parameterized
 
 class CollatzTests(unittest.TestCase):
     """Test cases for Collatz module."""
-    @parameterized.expand([(5, 5),
-                           (50, 18),
-                           (5000, 23),
-                           (5000000, 98),
-                           (5000000000, 89),
-                           (5000000000000000000000000000000000000, 448)])
+    @parameterized.expand([(5, 6),
+                           (50, 25),
+                           (5000, 29),
+                           (5000000, 145),
+                           (5000000000, 124),
+                           (5000000000000000000000000000000000000, 653)])
     def test_collatz_constructor_with_valid_numbers(self, starting_number, expected_count):
         """Tests constructor creates sequence of the expected length."""
         test_sequence = Collatz(starting_number)
@@ -49,7 +49,7 @@ class CollatzTests(unittest.TestCase):
 
     def test_display_sequence(self):
         """Tests display sequence gives correct output."""
-        expected_string = "5\n8\n4\n2\n1"
+        expected_string = "5\n16\n8\n4\n2\n1"
         test_sequence = Collatz(5)
         returned_string = test_sequence.display_sequence()
         self.assertEqual(expected_string, returned_string)
