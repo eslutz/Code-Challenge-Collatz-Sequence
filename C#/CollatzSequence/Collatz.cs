@@ -57,13 +57,12 @@ public class Collatz
 		// Set starting number from input.
 		_startingNumber = number;
 
-
 		// Set the complete sequence.
 		CollatzSequence = GenerateSequence();
 	}
 
 	/// <summary>
-	/// Generates the Collatz Sequence from the starting number
+	/// Generates the Collatz Sequence from the starting number.
 	/// </summary>
 	/// <returns>ReadOnly copy of the Collatz Sequence.</returns>
 	private ReadOnlyCollection<BigInteger> GenerateSequence()

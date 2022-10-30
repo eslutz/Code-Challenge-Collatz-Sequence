@@ -70,6 +70,11 @@ public class Collatz {
 		return Collections.unmodifiableList(this.collatzSequence);
 	}
 
+    /**
+     * Generates the Collatz Sequence from the starting number.
+     * 
+     * @return a bigint array of the sequence.
+     */
 	private void generateSequence() {
 		var currentNumber = startingNumber;
 		// Initialize a new list with the user number as the first element.
