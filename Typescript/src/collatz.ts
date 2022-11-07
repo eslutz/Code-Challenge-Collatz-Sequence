@@ -1,7 +1,7 @@
 /**
  * Collatz class for generating a Collatz Sequence from a starting value.
  */
-class Collatz {
+export default class Collatz {
     private starting_number: bigint;
     private collatz_sequence: Array<bigint>;
 
