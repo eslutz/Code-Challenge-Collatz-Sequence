@@ -62,6 +62,32 @@ public class Collatz
 	}
 
 	/// <summary>
+	/// Returns the length of the sequence.
+	/// </summary>
+	/// <returns>The integer value of the length of the sequence.</returns>
+	public int GetSequenceLength()
+	{
+		return CollatzSequence.ToList().Count;
+	}
+
+	/// <summary>
+	/// Builds a string with each number of the sequence on a line to display.
+	/// </summary>
+	/// <returns>The Collatz Sequence as a string to display.</returns>
+	public string DisplaySequence()
+	{
+		// Build return string.
+		var sb = new StringBuilder();
+		foreach(var number in CollatzSequence)
+		{
+			sb.AppendLine(number.ToString("G", NumberFormatInfo.CurrentInfo));
+		}
+
+		// Returns the Collatz Sequence string to display.
+		return sb.ToString();
+	}
+
+	/// <summary>
 	/// Generates the Collatz Sequence from the starting number.
 	/// </summary>
 	/// <returns>ReadOnly copy of the Collatz Sequence.</returns>
@@ -95,31 +121,5 @@ public class Collatz
 
 		// Returns the Collatz Sequence.
 		return sequence.AsReadOnly();
-	}
-
-	/// <summary>
-	/// Returns the length of the sequence.
-	/// </summary>
-	/// <returns>The integer value of the length of the sequence.</returns>
-	public int GetSequenceLength()
-	{
-		return CollatzSequence.ToList().Count;
-	}
-
-	/// <summary>
-	/// Builds a string with each number of the sequence on a line to display.
-	/// </summary>
-	/// <returns>The Collatz Sequence as a string to display.</returns>
-	public string DisplaySequence()
-	{
-		// Build return string.
-		var sb = new StringBuilder();
-		foreach(var number in CollatzSequence)
-		{
-			sb.AppendLine(number.ToString("G", NumberFormatInfo.CurrentInfo));
-		}
-
-		// Returns the Collatz Sequence string to display.
-		return sb.ToString();
 	}
 }

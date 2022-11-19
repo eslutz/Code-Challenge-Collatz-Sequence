@@ -14,10 +14,9 @@ class Collatz {
 private:
     BigInt startingNumber;
     vector<BigInt> collatzSequence;
-    void generateSequence();
+    vector<BigInt> generateSequence();
 public:
     explicit Collatz(const string& startingNumber = "");
-
     [[maybe_unused]] string getStartingNumber();
     [[maybe_unused]] void setStartingNumber(const string& newStartingNumber);
     [[maybe_unused]] int getSequenceLength();

@@ -23,32 +23,6 @@ export default class Collatz {
     }
 
     /**
-     * Generates the Collatz Sequence from the starting number.
-     *
-     * @return a bigint array of the sequence.
-     */
-    private generate_sequence(): Array<bigint> {
-        // Initialize current_number with the user number.
-        let current_number: bigint = this.starting_number;
-        // Initialize a new list with the user number as the first element.
-        const sequence: Array<bigint> = [ current_number ];
-
-        // Loop until the sequence reaches the end value of one.
-        while (current_number !== BigInt(1)) {
-            // If even, divide the number by 2.
-            // If odd, multiply the number by 3, add 1, and divide by 2.
-            current_number = current_number % BigInt(2) === BigInt(0) ?
-                current_number / BigInt(2) :
-                current_number * BigInt(3) + BigInt(1);
-            // Add the new number to the sequence list.
-            sequence.push(current_number);
-        }
-
-        // Set the Collatz Sequence.
-        return sequence;
-    }
-
-    /**
      * The getter for starting_number.
      *
      * @return the starting number.
@@ -100,5 +74,31 @@ export default class Collatz {
      */
     public display_sequence(): string {
         return this.collatz_sequence.join('\n');
+    }
+
+    /**
+     * Generates the Collatz Sequence from the starting number.
+     *
+     * @return a bigint array of the sequence.
+     */
+    private generate_sequence(): Array<bigint> {
+        // Initialize current_number with the user number.
+        let current_number: bigint = this.starting_number;
+        // Initialize a new list with the user number as the first element.
+        const sequence: Array<bigint> = [ current_number ];
+
+        // Loop until the sequence reaches the end value of one.
+        while (current_number !== BigInt(1)) {
+            // If even, divide the number by 2.
+            // If odd, multiply the number by 3, add 1, and divide by 2.
+            current_number = current_number % BigInt(2) === BigInt(0) ?
+                current_number / BigInt(2) :
+                current_number * BigInt(3) + BigInt(1);
+            // Add the new number to the sequence list.
+            sequence.push(current_number);
+        }
+
+        // Set the Collatz Sequence.
+        return sequence;
     }
 }
